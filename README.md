@@ -17,18 +17,6 @@ This repository contains a custom implementation of coroutines in GNU Assembly w
   - `create_coroutine`: Creates a new coroutine and assigns it a portion of the pre-allocated stack.
   - `coroutine_yield`: Saves the current context and switches to the next coroutine.
 
-## Limitations
-
-1. **Static Stack Allocation:**
-   - The stack memory is statically allocated at compile time.
-   - The size and number of stacks are fixed by the constants `STACK_SIZE` and `COROUTINE_CAPACITY`.
-
-2. **No Dynamic Stack Reclamation:**
-   - Stacks assigned to finished coroutines remain allocated.
-
-3. **Fixed Coroutine Capacity:**
-   - The number of coroutines is limited to the value of `COROUTINE_CAPACITY`.
-
 ## How It Works
 
 1. **Stack Management:**
@@ -41,6 +29,18 @@ This repository contains a custom implementation of coroutines in GNU Assembly w
 3. **Round-Robin Scheduling:**
    - Coroutines are scheduled in a simple round-robin manner.
    - When the last coroutine yields, the scheduler loops back to the first coroutine.
+
+## Limitations
+
+1. **Static Stack Allocation:**
+   - The stack memory is statically allocated at compile time.
+   - The size and number of stacks are fixed by the constants `STACK_SIZE` and `COROUTINE_CAPACITY`.
+
+2. **No Dynamic Stack Reclamation:**
+   - Stacks assigned to finished coroutines remain allocated.
+
+3. **Fixed Coroutine Capacity:**
+   - The number of coroutines is limited to the value of `COROUTINE_CAPACITY`.
 
 ## Future Enhancements
 
